@@ -33,7 +33,9 @@ class database:
         self.__login()
         cursor = self.__mydb.cursor()
         
-        sql_q = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'fuel_prices' and table_name not in ('prices', 'stations');"
+        sql_q = "SELECT table_name FROM information_schema.tables WHERE table_schema = \
+        'fuel_prices' and table_name not in ('prices', 'stations');"
+        
         cursor.execute(sql_q)
         
         self.uuids         = pd.DataFrame(cursor.fetchall())
